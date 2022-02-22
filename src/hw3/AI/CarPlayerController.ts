@@ -47,6 +47,8 @@ export default class CarPlayerController implements AI {
 
 		this.receiver = new Receiver();
 		this.emitter = new Emitter();
+
+		this.receiver.subscribe(Homework3Event.PLAYER_DAMAGE);
 	}
 
 	activate(options: Record<string, any>){};
@@ -54,6 +56,7 @@ export default class CarPlayerController implements AI {
 	handleEvent(event: GameEvent): void {
 		// We need to handle animations when we get hurt
 		if(event.type === Homework3Event.PLAYER_DAMAGE){
+			console.log(event);
 			if(event.data.get("health") === 0){
 				// Play animation and queue event to end game
 				this.owner.animation.play("dying", false, Homework3Event.PLAYER_DEAD);
@@ -63,6 +66,10 @@ export default class CarPlayerController implements AI {
 				this.owner.animation.play("damage", false, Homework3Event.PLAYER_I_FRAMES_END);
 			}
 		}
+		// if (event.type === Homework3Event.SHOOT_BULLET) {
+		// 	this.owner.animation.play("firing", false, Homework3Event.SHOOT_BULLET);
+		// 	this.owner.animation.queue("driving", false);
+		// }
 	}
 
 	update(deltaT: number): void {
@@ -79,6 +86,8 @@ export default class CarPlayerController implements AI {
 		//If shift is currently being held down, increase the speed of the car. If not, check if mouse click has been pressed to shoot a bullet.
 		if(Input.isKeyPressed("shift")) {
 			this.speed = this.MAX_SPEED;
+		} else if (Input.isMouseJustPressed()) { // TODO
+			console.log("Shoot!");
 		}
 
 		// We need to handle player input for movement

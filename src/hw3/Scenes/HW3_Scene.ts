@@ -80,7 +80,7 @@ export default class Homework3_Scene extends Scene {
 	loadScene(){
 		/* ##### DO NOT MODIFY ##### */
 		// Load in the player car spritesheet
-		this.load.spritesheet("player", "hw3_assets/spritesheets/cars.json");
+		this.load.spritesheet("player", "hw3_assets/spritesheets/vehicle.json");
 
 		// Load in the background image
 		this.load.image("desert_road", "hw3_assets/sprites/road.jpg");
@@ -480,6 +480,15 @@ export default class Homework3_Scene extends Scene {
 				// If the rock is spawned in and it overlaps the player
 				if(rock.visible && this.player.collisionShape.overlaps(rock.boundary)){
 					// Put your code here:
+					rock.visible = false; // Hide the rock
+
+					this.playerHealth -= 1; // Decrement health counter
+					this.healthLabel.text = `Health: ${this.playerHealth}`;
+					
+					// Send out an event to destroy the bullet
+					this.emitter.fireEvent(Homework3Event.PLAYER_DAMAGE, {health: this.playerHealth});
+
+					console.log("Hit!");
 				}
 			}
 		}
