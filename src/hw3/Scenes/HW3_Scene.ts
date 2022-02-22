@@ -609,21 +609,21 @@ export default class Homework3_Scene extends Scene {
 	lockPlayer(viewportCenter: Vec2, viewportSize: Vec2): void {
 		//REMOVE
 		// Your code goes here:
-		// optional: Scale with clientWidth
-		// TODO: Boundary based on size!!!
-		// let canvas = document.getElementById("game-canvas");
-		// console.log(canvas.clientWidth);
-		// console.log("VC: " + viewportCenter + ", VS: " + viewportSize);
+
 		if (this.player.position.x < 32) {
 			this.player.position.x = 32;
-		} else if (this.player.position.x > 900 - 32) {
-			this.player.position.x = 900 - 32;
-		} else if (this.player.position.y < 42) {
+		}
+		if (this.player.position.x > viewportSize.x - 32) {
+			this.player.position.x = viewportSize.x - 32;
+		}
+		if (this.player.position.y < 42) {
 			this.player.position.y = 42;
-		} else if (this.player.position.y > 900 - 42) {
-			this.player.position.y = 900 - 42;
+		}
+		if (this.player.position.y > viewportSize.y - 42) {
+			this.player.position.y = viewportSize.y - 42;
 		}
 		// console.log("Player position: " + this.player.position);
+		// console.log("ViewportCenter: " + viewportCenter + ", \nViewPortSize: " + viewportSize);
 	}
 
 	// HOMEWORK 3 - TODO (2. collision)
