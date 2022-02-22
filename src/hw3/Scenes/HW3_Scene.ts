@@ -69,7 +69,7 @@ export default class Homework3_Scene extends Scene {
 	private bg1: Sprite;
 	private bg2: Sprite;
 
-	// HOMEWORK 3 - TODO 
+	// Resolved (Adding own sprite)
 	/*
 		You'll want to be sure to load in your own sprite here
 	*/
@@ -481,10 +481,11 @@ export default class Homework3_Scene extends Scene {
 				if(rock.visible && this.player.collisionShape.overlaps(rock.boundary)){
 					// Put your code here:
 					rock.visible = false; // Hide the rock
+					this.playerinvincible = true;
 
 					this.playerHealth -= 1; // Decrement health counter
 					this.healthLabel.text = `Health: ${this.playerHealth}`;
-					
+
 					// Send out an event to destroy the bullet
 					this.emitter.fireEvent(Homework3Event.PLAYER_DAMAGE, {health: this.playerHealth});
 
@@ -608,6 +609,21 @@ export default class Homework3_Scene extends Scene {
 	lockPlayer(viewportCenter: Vec2, viewportSize: Vec2): void {
 		//REMOVE
 		// Your code goes here:
+		// optional: Scale with clientWidth
+		// TODO: Boundary based on size!!!
+		// let canvas = document.getElementById("game-canvas");
+		// console.log(canvas.clientWidth);
+		// console.log("VC: " + viewportCenter + ", VS: " + viewportSize);
+		if (this.player.position.x < 32) {
+			this.player.position.x = 32;
+		} else if (this.player.position.x > 900 - 32) {
+			this.player.position.x = 900 - 32;
+		} else if (this.player.position.y < 42) {
+			this.player.position.y = 42;
+		} else if (this.player.position.y > 900 - 42) {
+			this.player.position.y = 900 - 42;
+		}
+		// console.log("Player position: " + this.player.position);
 	}
 
 	// HOMEWORK 3 - TODO (2. collision)

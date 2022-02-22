@@ -66,10 +66,6 @@ export default class CarPlayerController implements AI {
 				this.owner.animation.play("damage", false, Homework3Event.PLAYER_I_FRAMES_END);
 			}
 		}
-		// if (event.type === Homework3Event.SHOOT_BULLET) {
-		// 	this.owner.animation.play("firing", false, Homework3Event.SHOOT_BULLET);
-		// 	this.owner.animation.queue("driving", false);
-		// }
 	}
 
 	update(deltaT: number): void {
@@ -87,6 +83,7 @@ export default class CarPlayerController implements AI {
 		if(Input.isKeyPressed("shift")) {
 			this.speed = this.MAX_SPEED;
 		} else if (Input.isMouseJustPressed()) { // TODO
+			this.emitter.fireEvent(Homework3Event.SHOOT_BULLET, {position: this.owner.relativePosition});
 			console.log("Shoot!");
 		}
 
