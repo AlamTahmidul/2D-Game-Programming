@@ -591,7 +591,7 @@ export default class Homework3_Scene extends Scene {
 			}
 		} else { // bullet; Handle the y-value
 			if (node.boundary.y < 0) {
-				console.log("Bullet Despawned! ID: " + node.id);
+				// console.log("Bullet Despawned! ID: " + node.id);
 				this.emitter.fireEvent(Homework3Event.BULLET_USED, {id: node.id});
 			}
 		}
@@ -670,15 +670,16 @@ export default class Homework3_Scene extends Scene {
 		// Your code goes here:
 		// x^2 + y^2 = r^2
 		// Check if x1 <= x <= x2 for some x1 and x2 being vertices of a rectangle
-		if (circle.center.y - circle.r == aabb.bottomLeft.y && aabb.bottomLeft.x == circle.center.x && circle.center.x == aabb.bottomRight.x) { // Circle going up
+		// console.log("CircleX: " + circle.center.x);
+		if (circle.center.y - circle.r <= aabb.bottomLeft.y && aabb.bottomLeft.x <= circle.center.x && circle.center.x <= aabb.bottomRight.x) { // Circle going up
 			return true;
 		}
-		if (circle.center.x - circle.r == aabb.topRight.x && circle.center.y == aabb.bottomRight.y && circle.center.y == aabb.topRight.y) { // Circle going up and check left collision
-			return true;
-		}
-		if (circle.center.x + circle.r == aabb.topRight.x && circle.center.y == aabb.bottomRight.y && circle.center.y == aabb.topRight.y) { // Circle going up and check right collision
-			return true;
-		}
+		// if (circle.center.x - circle.r == aabb.topRight.x && circle.center.y == aabb.bottomRight.y && circle.center.y == aabb.topRight.y) { // Circle going up and check left collision
+		// 	return true;
+		// }
+		// if (circle.center.x + circle.r == aabb.topRight.x && circle.center.y == aabb.bottomRight.y && circle.center.y == aabb.topRight.y) { // Circle going up and check right collision
+		// 	return true;
+		// }
 		// If the distance between a rectangle's "vertex" and the circle's vertex <= radius, intersection happens
 		let distance = function (a: Vec2, b:Vec2) {
 			return ( Math.sqrt( ((a.x-b.x)*(a.x-b.x)) + ((a.y-b.y)*(a.y-b.y)) ) )
