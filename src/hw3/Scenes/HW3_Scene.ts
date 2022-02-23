@@ -290,7 +290,7 @@ export default class Homework3_Scene extends Scene {
 		}
 	}
 
-	// HOMEWORK 3 - TODO
+	// Resolved
 	/**  
 	 * This function spawns a bullet from the object pool. Your task is to randomly select either pink or yellow as it's color, and
 	 * change it's speed accordingly. The second color of the linear gradient circle will be set in the LinearGradientCircleShaderType file.
@@ -674,10 +674,11 @@ export default class Homework3_Scene extends Scene {
 		if (circle.center.y - circle.r <= aabb.bottomLeft.y && aabb.bottomLeft.x <= circle.center.x && circle.center.x <= aabb.bottomRight.x) { // Circle going up
 			return true;
 		}
-		// if (circle.center.x - circle.r == aabb.topRight.x && circle.center.y == aabb.bottomRight.y && circle.center.y == aabb.topRight.y) { // Circle going up and check left collision
+		// TODO: Handle Assertions
+		// if (circle.center.x - circle.r == aabb.topRight.x && circle.center.y <= aabb.bottomRight.y && circle.center.y >= aabb.topRight.y) { // Circle going up and check left collision
 		// 	return true;
 		// }
-		// if (circle.center.x + circle.r == aabb.topRight.x && circle.center.y == aabb.bottomRight.y && circle.center.y == aabb.topRight.y) { // Circle going up and check right collision
+		// if (circle.center.x + circle.r == aabb.topRight.x && circle.center.y <= aabb.bottomRight.y && circle.center.y >= aabb.topRight.y) { // Circle going up and check right collision
 		// 	return true;
 		// }
 		// If the distance between a rectangle's "vertex" and the circle's vertex <= radius, intersection happens
