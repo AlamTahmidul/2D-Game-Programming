@@ -258,7 +258,8 @@ export default class Homework3_Scene extends Scene {
 			this.bullets[i].color = (Math.random() > 0.5 ? Color.MAGENTA : Color.YELLOW);
 
 			// Add AI to our bullet
-			this.bullets[i].addAI(BulletBehavior, {speed: 250});
+			const sp = (this.bullets[i].color.g == Color.YELLOW.g) ? 500 : 150;
+			this.bullets[i].addAI(BulletBehavior, {speed: sp });
 
 			// Add a collider to our bullet
 			let collider = new Circle(Vec2.ZERO, 25);
@@ -310,7 +311,9 @@ export default class Homework3_Scene extends Scene {
 			// Spawn a bullet
 			bullet.visible = true;
 			bullet.position = position.add(new Vec2(0, -64));
-			bullet.setAIActive(true, {speed: 250});
+			// console.log(bullet.color.g == Color.YELLOW.g);
+			const sp = (bullet.color.g == Color.YELLOW.g) ? 500 : 150;
+			bullet.setAIActive(true, {speed: sp});
 		}
 	}
 
@@ -665,9 +668,26 @@ export default class Homework3_Scene extends Scene {
 	static checkAABBtoCircleCollision(aabb: AABB, circle: Circle): boolean {
 		//REMOVE
 		// Your code goes here:
-		// If the distance between a rectangle's "edge" and the circle <= radius, intersection happens
-		
-		return false;
+		// x^2 + y^2 = r^2
+		// Check if x1 <= x <= x2 for some x1 and x2 being vertices of a rectangle
+		if (circle.center.y - circle.r == aabb.bottomLeft.y && aabb.bottomLeft.x == circle.center.x && circle.center.x == aabb.bottomRight.x) { // Circle going up
+			return true;
+		}
+		if (circle.center.x - circle.r == aabb.topRight.x && circle.center.y == aabb.bottomRight.y && circle.center.y == aabb.topRight.y) { // Circle going up and check left collision
+			return true;
+		}
+		if (circle.center.x + circle.r == aabb.topRight.x && circle.center.y == aabb.bottomRight.y && circle.center.y == aabb.topRight.y) { // Circle going up and check right collision
+			return true;
+		}
+		// If the distance between a rectangle's "vertex" and the circle's vertex <= radius, intersection happens
+		let distance = function (a: Vec2, b:Vec2) {
+			return ( Math.sqrt( ((a.x-b.x)*(a.x-b.x)) + ((a.y-b.y)*(a.y-b.y)) ) )
+		};
+		return (distance(aabb.bottomLeft, circle.center) <= circle.r ||
+				distance(aabb.topLeft, circle.center) <= circle.r ||
+				distance(aabb.topRight, circle.center) <= circle.r ||
+				distance(aabb.bottomRight, circle.center) <= circle.r
+			); // Corner collision
 	}
 
 }

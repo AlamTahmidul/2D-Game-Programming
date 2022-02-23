@@ -24,7 +24,7 @@ export default class CarPlayerController implements AI {
 	private receiver: Receiver;
 	private emitter: Emitter;
 
-	// HOMEWORK 3 - TODO 
+	// Resolved
 	/**
 	 * This method initializes all variables inside of this AI class, and sets
 	 * up anything we need it do.

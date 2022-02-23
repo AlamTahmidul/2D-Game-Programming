@@ -21,9 +21,12 @@ void main(){
 	// Get the distance squared of from (0, 0)
 	float dist_sq = v_Position.x*v_Position.x + v_Position.y*v_Position.y;
 
+	// float bottom_left_x = radius * cos((3.1415926 / 180.0)*45) * -1;
+	// float bottom_left_y = radius * sin((3.1415926 / 180.0)*45) * -1;
+
 	if(dist_sq < radius*radius){
 		// Multiply by 4, since distance squared is at most 0.25
-		alpha = 4.0*dist_sq;
+		alpha = 2.0*dist_sq;
 	}
 
 	// Use the alpha value in our color
