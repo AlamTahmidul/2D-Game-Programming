@@ -251,7 +251,7 @@ export default class Homework3_Scene extends Scene {
 			// HOMEWORK 3 - TODO
 			// Currently bullets use the base custom gradient circle shader, 
 			// you'll need to change this to the Linear Gradient Circle once you get that shader working. 
-			this.bullets[i].useCustomShader(Homework3Shaders.GRADIENT_CIRCLE);
+			this.bullets[i].useCustomShader(Homework3Shaders.LINEAR_GRADIENT_CIRCLE);
 
 			this.bullets[i].visible = false;
 			// This is the color each bullet is set to by default, you can change this if you like a different color
