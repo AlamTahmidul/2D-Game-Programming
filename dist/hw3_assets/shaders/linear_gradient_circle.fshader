@@ -5,7 +5,7 @@ varying vec4 v_Position;
 uniform vec4 circle_Color;
 uniform vec4 circle_Color_Secondary;
 
-// HOMEWORK 3 - TODO
+// Resolved
 /*
 	The fragment shader is where pixel colors are decided.
 	You'll have to modify this code to make the circle vary between 2 colors.
@@ -23,12 +23,13 @@ void main(){
 
 	// float bottom_left_x = radius * cos((3.1415926 / 180.0)*45) * -1;
 	// float bottom_left_y = radius * sin((3.1415926 / 180.0)*45) * -1;
-	float interp = 0.55;
+	float interp = 0.75;
 	if(dist_sq < radius*radius){
 		// Multiply by 4, since distance squared is at most 0.25
-		// alpha = 1.0*dist_sq;
+		// alpha = 4.0*dist_sq;
+		// float interp = 2.0*dist_sq;
 
-		float diff = v_Position.y + v_Position.x; // y - mx = 0 -> m = 1
+		float diff = v_Position.y*1.0 + 1.0*v_Position.x; // y - mx = 0 -> m = 1
 		// if (diff < 0.0) {
 		// 	gl_FragColor = vec4(circle_Color_Secondary); // BLUE
 		// } else {
@@ -37,13 +38,13 @@ void main(){
 		// }
 		vec4 m = mix(circle_Color_Secondary*(1.0-diff), circle_Color*(diff), interp);
 		gl_FragColor = vec4(m); // BLUE
-		gl_FragColor.a = 0.85;
+		gl_FragColor.a = 0.90;
 		// gl_FragColor.a = 1.0;
 	}
 
 	// Use the alpha value in our color
 	// vec4 m = mix(circle_Color_Secondary, circle_Color, 0.3);
 	// gl_FragColor = vec4(m);
-	// // gl_FragColor.a = alpha;
+	// gl_FragColor.a = 1.0;
 	// gl_FragColor.a = 1.0;
 }

@@ -16,7 +16,7 @@ export default class LinearGradientCircleShaderType extends RectShaderType {
 		this.resourceManager.createBuffer(this.bufferObjectKey);
 	}
 
-	// HOMEWORK 3 - TODO 
+	// Resolved
 	/**
 	 * You should modify this method to pass another color into LinearGradientCircles
 	 * 
@@ -87,7 +87,7 @@ export default class LinearGradientCircleShaderType extends RectShaderType {
 		gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 	}
 
-	// HOMEWORK 3 - TODO
+	// Resolved
 	/**
 	 * This method decides what options get passed to the above render() method.
 	 * You should modify this class to allow you to pass another color into the render method.

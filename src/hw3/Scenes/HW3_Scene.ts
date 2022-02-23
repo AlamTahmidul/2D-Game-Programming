@@ -248,7 +248,7 @@ export default class Homework3_Scene extends Scene {
 		for(let i = 0; i < this.bullets.length; i++){
 			this.bullets[i] = this.add.graphic(GraphicType.RECT, "primary", {position: new Vec2(0, 0), size: new Vec2(50, 50)});
 
-			// HOMEWORK 3 - TODO
+			// Resolved
 			// Currently bullets use the base custom gradient circle shader, 
 			// you'll need to change this to the Linear Gradient Circle once you get that shader working. 
 			this.bullets[i].useCustomShader(Homework3Shaders.LINEAR_GRADIENT_CIRCLE);
@@ -492,7 +492,7 @@ export default class Homework3_Scene extends Scene {
 					// Send out an event to destroy the bullet
 					this.emitter.fireEvent(Homework3Event.PLAYER_DAMAGE, {health: this.playerHealth});
 
-					console.log("Hit!");
+					// console.log("Hit!");
 				}
 			}
 		}
@@ -640,7 +640,7 @@ export default class Homework3_Scene extends Scene {
 		// console.log("ViewportCenter: " + viewportCenter + ", \nViewPortSize: " + viewportSize);
 	}
 
-	// HOMEWORK 3 - TODO (2. collision)
+	// Resolved (2. collision)
 	/**
 	 * This method checks whether or not an AABB collision shape and a Circle collision shape
 	 * overlap with each other.
@@ -668,23 +668,32 @@ export default class Homework3_Scene extends Scene {
 	static checkAABBtoCircleCollision(aabb: AABB, circle: Circle): boolean {
 		//REMOVE
 		// Your code goes here:
+
 		// x^2 + y^2 = r^2
 		// Check if x1 <= x <= x2 for some x1 and x2 being vertices of a rectangle
 		// console.log("CircleX: " + circle.center.x);
 		if (circle.center.y - circle.r <= aabb.bottomLeft.y && aabb.bottomLeft.x <= circle.center.x && circle.center.x <= aabb.bottomRight.x) { // Circle going up
 			return true;
 		}
-		// TODO: Handle Assertions
+
 		// if (circle.center.x - circle.r == aabb.topRight.x && circle.center.y <= aabb.bottomRight.y && circle.center.y >= aabb.topRight.y) { // Circle going up and check left collision
 		// 	return true;
 		// }
 		// if (circle.center.x + circle.r == aabb.topRight.x && circle.center.y <= aabb.bottomRight.y && circle.center.y >= aabb.topRight.y) { // Circle going up and check right collision
 		// 	return true;
 		// }
+
 		// If the distance between a rectangle's "vertex" and the circle's vertex <= radius, intersection happens
 		let distance = function (a: Vec2, b:Vec2) {
 			return ( Math.sqrt( ((a.x-b.x)*(a.x-b.x)) + ((a.y-b.y)*(a.y-b.y)) ) )
 		};
+		let p1: Vec2 = new Vec2(0.0, 0.0);
+		// check left/right collision
+		p1.x = circle.center.x - circle.radius;
+		p1.y = circle.center.y;
+		if (Math.abs(distance(p1, aabb.center)) <= Math.abs(aabb.center.x - p1.x))
+			return true;
+		
 		return (distance(aabb.bottomLeft, circle.center) <= circle.r ||
 				distance(aabb.topLeft, circle.center) <= circle.r ||
 				distance(aabb.topRight, circle.center) <= circle.r ||
