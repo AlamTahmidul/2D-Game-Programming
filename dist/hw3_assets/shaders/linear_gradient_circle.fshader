@@ -3,6 +3,7 @@ precision mediump float;
 varying vec4 v_Position;
 
 uniform vec4 circle_Color;
+uniform vec4 circle_Color_Secondary;
 
 // HOMEWORK 3 - TODO
 /*
@@ -26,6 +27,7 @@ void main(){
 	}
 
 	// Use the alpha value in our color
+	// vec4 m = mix(circle_Color_Secondary, circle_Color, 0.5);
 	gl_FragColor = vec4(circle_Color);
 	gl_FragColor.a = alpha;
 }

@@ -49,6 +49,7 @@ export default class CarPlayerController implements AI {
 		this.emitter = new Emitter();
 
 		this.receiver.subscribe(Homework3Event.PLAYER_DAMAGE);
+		this.receiver.subscribe(Homework3Event.SHOOT_BULLET);
 	}
 
 	activate(options: Record<string, any>){};
@@ -65,6 +66,8 @@ export default class CarPlayerController implements AI {
 			} else {
 				this.owner.animation.play("damage", false, Homework3Event.PLAYER_I_FRAMES_END);
 			}
+		} if (event.type === Homework3Event.SHOOT_BULLET) {
+			this.owner.animation.play("firing", false, Homework3Event.PLAYER_I_FRAMES_END);
 		}
 	}
 
@@ -75,7 +78,7 @@ export default class CarPlayerController implements AI {
 			this.handleEvent(this.receiver.getNextEvent());
 		}
 
-		//HOMEWORK 3 - TODO 
+		// Resolved
 		//When the player clicks their mouse, a bullet should be fired by using the SHOOT_BULLET event.
 		//Note that you shouldn't be able to fire a bullet while holding shift.
 

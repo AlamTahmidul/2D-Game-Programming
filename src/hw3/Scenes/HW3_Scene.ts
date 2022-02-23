@@ -255,7 +255,7 @@ export default class Homework3_Scene extends Scene {
 
 			this.bullets[i].visible = false;
 			// This is the color each bullet is set to by default, you can change this if you like a different color
-			this.bullets[i].color = Color.BLUE;
+			this.bullets[i].color = (Math.random() > 0.5 ? Color.MAGENTA : Color.YELLOW);
 
 			// Add AI to our bullet
 			this.bullets[i].addAI(BulletBehavior, {speed: 250});
@@ -400,7 +400,7 @@ export default class Homework3_Scene extends Scene {
 		}
 	}
 
-	// HOMEWORK 3 - TODO
+	// Resolved
 	/**
 	 * Handles all collisions.
 	 * Collisions only occur between:
@@ -529,7 +529,7 @@ export default class Homework3_Scene extends Scene {
 		}
 	}
 
-	// HOMEWORK 3- TODO
+	// Resolved
 	/**
 	 * This function takes in a GameNode that may be out of bounds of the viewport and
 	 * "kills" it as if it was destroyed through usual collision. This is done so that
@@ -581,9 +581,20 @@ export default class Homework3_Scene extends Scene {
 	 */
 	handleScreenDespawn(node: CanvasNode, viewportCenter: Vec2, paddedViewportSize: Vec2, isBullet: boolean): void {
 		// Your code goes here:
+		if (!isBullet) { // rock; Handle the y Value
+			if (node.boundary.y > paddedViewportSize.y) {
+				// console.log("Rock BoundaryY: " + node.boundary.y + ", paddedSize: " + paddedViewportSize + ", " + viewportCenter);
+				node.visible = false;
+			}
+		} else { // bullet; Handle the y-value
+			if (node.boundary.y < 0) {
+				console.log("Bullet Despawned! ID: " + node.id);
+				this.emitter.fireEvent(Homework3Event.BULLET_USED, {id: node.id});
+			}
+		}
 	}
 
-	// HOMEWORK 3 - TODO (3. BOUND CAR)
+	// Resolved (3. BOUND CAR)
 	/**
 	 * This function is similar to the despawn function above, except there's no padded area since we
 	 * want tight bounds. Using a similar illustration from above:
@@ -654,6 +665,8 @@ export default class Homework3_Scene extends Scene {
 	static checkAABBtoCircleCollision(aabb: AABB, circle: Circle): boolean {
 		//REMOVE
 		// Your code goes here:
+		// If the distance between a rectangle's "edge" and the circle <= radius, intersection happens
+		
 		return false;
 	}
 

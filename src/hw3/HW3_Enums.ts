@@ -16,7 +16,7 @@ export enum Homework3Shaders {
 	LINEAR_GRADIENT_CIRCLE = "LINEAR_GRADIENT_CIRCLE"
 }
 
-// HOMEWORK 3 - TODO
+// Ignore Per Piazza@27: https://piazza.com/class/kza0f5n9no04wt?cid=27
 /*
  * Make sure these match the animation names for your own animated sprite.
  */
