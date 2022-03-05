@@ -3,7 +3,6 @@ node_modules
 
 # Exclude the compiled project
 dist/*
-testing
 
 # Include the demo_assets folder
 !dist/demo_assets/
@@ -12,9 +11,8 @@ testing
 !dist/builtin/
 
 # Include the hw1 assets
-!dist/hw3_assets/
+!dist/hw4_assets/
 
 ### IF YOU ARE MAKING A PROJECT, YOU MAY WANT TO UNCOMMENT THIS LINE ###
 # !dist/assets/
 
-*.zip
