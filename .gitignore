@@ -3,6 +3,7 @@ node_modules
 
 # Exclude the compiled project
 dist/*
+testing
 
 # Include the demo_assets folder
 !dist/demo_assets/
@@ -16,3 +17,4 @@ dist/*
 ### IF YOU ARE MAKING A PROJECT, YOU MAY WANT TO UNCOMMENT THIS LINE ###
 # !dist/assets/
 
+*.zip
