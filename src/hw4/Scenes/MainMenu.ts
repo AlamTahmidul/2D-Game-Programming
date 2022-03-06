@@ -28,6 +28,42 @@ export default class MainMenu extends Scene {
         play.backgroundColor = Color.TRANSPARENT;
         play.onClickEventId = "play";
 
+        // Add Controls button
+        const control = this.add.uiElement(UIElementType.BUTTON, "mainMenu", {position: new Vec2(center.x, center.y), text: "Controls"});
+        control.size.set(200, 50);
+        control.borderWidth = 2;
+        control.borderColor = Color.WHITE;
+        control.backgroundColor = Color.TRANSPARENT;
+        control.onClickEventId = "control";
+
+        /* ########## Control SCREEN ########## */
+        this.control = this.addUILayer("control");
+        this.control.setHidden(true);
+        
+        const controlHeader = <Label>this.add.uiElement(UIElementType.LABEL, "control", {position: new Vec2(center.x, center.y - 300), text: "Controls"});
+        controlHeader.textColor = Color.WHITE;
+
+        const controls1 = "Right Click | Move";
+        const controls2 = "E | Item Pick Up";
+        const controls3 = "Q | Drop Current Item";
+        const controls4 = "1/2 | Equip Inventory Item";
+        const controls5 = "Z/X | Swap Player Character";
+
+        const cline1 = <Label>this.add.uiElement(UIElementType.LABEL, "control", {position: new Vec2(center.x, center.y - 100), text: controls1});
+        const cline2 = <Label>this.add.uiElement(UIElementType.LABEL, "control", {position: new Vec2(center.x, center.y - 50), text: controls2});
+        const cline3 = <Label>this.add.uiElement(UIElementType.LABEL, "control", {position: new Vec2(center.x, center.y), text: controls3});
+        const cline4 = <Label>this.add.uiElement(UIElementType.LABEL, "control", {position: new Vec2(center.x, center.y + 50), text: controls4});
+        const cline5 = <Label>this.add.uiElement(UIElementType.LABEL, "control", {position: new Vec2(center.x, center.y + 100), text: controls5});
+
+        cline1.textColor = cline2.textColor = cline3.textColor = cline4.textColor = cline5.textColor = Color.WHITE;
+
+        const controlBack = this.add.uiElement(UIElementType.BUTTON, "control", {position: new Vec2(center.x, center.y + 250), text: "Back"});
+        controlBack.size.set(200, 50);
+        controlBack.borderWidth = 2;
+        controlBack.borderColor = Color.WHITE;
+        controlBack.backgroundColor = Color.TRANSPARENT;
+        controlBack.onClickEventId = "menu"; 
+
         // Add about button
         const about = this.add.uiElement(UIElementType.BUTTON, "mainMenu", {position: new Vec2(center.x, center.y + 100), text: "About"});
         about.size.set(200, 50);
