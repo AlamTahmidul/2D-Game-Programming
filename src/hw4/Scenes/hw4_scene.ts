@@ -195,7 +195,7 @@ export default class hw4_scene extends Scene {
         let health2 = (<BattlerAI>this.playerCharacters[1]._ai).health;
 
         //If both are dead, game over
-        if(health1 === 0 && health2 === 0){
+        if(health1 === 0 || health2 === 0){
             this.sceneManager.changeToScene(GameOver);
         }
 
