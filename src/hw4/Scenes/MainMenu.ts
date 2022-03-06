@@ -47,7 +47,7 @@ export default class MainMenu extends Scene {
         const controls2 = "E | Item Pick Up";
         const controls3 = "Q | Drop Current Item";
         const controls4 = "1/2 | Equip Inventory Item";
-        const controls5 = "Z/X | Swap Player Character";
+        const controls5 = "Z/X | Swap to Player Character 1/2";
 
         const cline1 = <Label>this.add.uiElement(UIElementType.LABEL, "control", {position: new Vec2(center.x, center.y - 100), text: controls1});
         const cline2 = <Label>this.add.uiElement(UIElementType.LABEL, "control", {position: new Vec2(center.x, center.y - 50), text: controls2});
@@ -105,13 +105,12 @@ export default class MainMenu extends Scene {
         this.receiver.subscribe("menu");
         this.receiver.subscribe("control");
 
-        // HOMEWORK 4 - TODO
+        // Resolved
         /*
             Add a controls screen here.
             Use the About screen as inspiration for how to do so.
             The controls screen should list all controls:
 
-            WASD to move
             Q to drop an item
             E to pick up an item
             Click to use current item
