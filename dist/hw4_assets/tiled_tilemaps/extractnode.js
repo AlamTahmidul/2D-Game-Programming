@@ -1,18 +1,39 @@
-const fs = require('fs');
+const { EOF } = require('dns');
+const { stdin } = require('process');
 
-fs.readFile('./hw4_tilemaps_custom.json', 'utf8', (err, jsonString) => {
-    if (err) {
-        console.log("Fail!");
-        return;
-    }
-    // console.log(jsonString);
-    let jsonData = JSON.parse(jsonString);
-    let ob = jsonData["layers"][1].objects;
-    // console.log(ob);
-    for (let o in ob) {
-        let x = ob[o].x;
-        let y = ob[o].y;
-        console.log("" + x + ", " + y);
-    }
+const testing = true;
 
-});
+if (!testing)
+{
+    const fs = require('fs');
+
+    fs.readFile('./hw4_tilemaps_custom.json', 'utf8', (err, jsonString) => {
+        if (err) {
+            console.log("Fail!");
+            return;
+        }
+        // console.log(jsonString);
+        let jsonData = JSON.parse(jsonString);
+        let ob = jsonData["layers"][1].objects;
+        // console.log(ob);
+        for (let o in ob) {
+            let x = ob[o].x;
+            let y = ob[o].y;
+            // let id = ob[o].id;
+            // console.log("ID: " + id + " / " + x + ", " + y);
+            console.log(x + ", " + y);
+            fs.appendFile('navmesh_custom.json', "[" + o + ", " + (++o) + "], ", err => {
+                if (err) {
+                    console.log("Error!");
+                    return;
+                }
+            });
+        }
+    });
+} else {
+    // Testing Code
+    const arr = [[208, 1840], [400, 1840], [176, 1616], [368, 960], [176, 960], [1232, 320], [1760, 1152], [1760, 1056], [1856, 1056], [1856, 1152], [1664, 816], [1472, 1152], [1408, 1088], [1104, 320], [1472, 512], [1408, 928], [1120, 800], [960, 800], [1280, 800], [640, 768], [1408, 576], [640, 832], [832, 800], [832, 1152], [896, 1088], [128, 416], [640, 896], [192, 192], [192, 352], [128, 128], [128, 256], [416, 136], [256, 256], [1472, 1792], [1600, 1824], [1728, 1792], [448, 480], [1920, 1504], [1536, 1504], [576, 128], [1152, 1504], [1936, 192], [1968, 928], [1936, 704], [1568, 184], [832, 184], [1344, 184], [544, 256], [1024, 176], [256, 608], [128, 608], [640, 176], [576, 544], [576, 1056], [576, 1152], [576, 1248], [864, 1408], [1728, 640], [1728, 480], [1728, 320], [544, 608], [736, 288], [1088, 1312], [1216, 1312], [1216, 1088], [928, 288], [1056, 1088], [896, 928], [1120, 896], [928, 1504], [736, 864], [576, 1408], [368, 1600], [176, 1344], [800, 1696], [368, 1344], [992, 1696], [1248, 1632], [1120, 1824], [1440, 1600], [704, 1824], [1760, 1600]]
+    const val1 = 91;
+    const val2 = 90;
+    console.log(arr[val1] + " and " + arr[val2]);
+}
