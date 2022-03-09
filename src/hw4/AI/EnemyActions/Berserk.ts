@@ -3,6 +3,7 @@ import GoapAction from "../../../Wolfie2D/DataTypes/Interfaces/GoapAction";
 import Vec2 from "../../../Wolfie2D/DataTypes/Vec2";
 import Emitter from "../../../Wolfie2D/Events/Emitter";
 import GameNode from "../../../Wolfie2D/Nodes/GameNode";
+import { hw4_Statuses } from "../../hw4_constants";
 import EnemyAI from "../EnemyAI";
 
 // HOMEWORK 4 - TODO
@@ -21,6 +22,10 @@ export default class Berserk extends GoapAction {
     }
 
     performAction(statuses: Array<string>, actor: StateMachineGoapAI, deltaT: number, target?: StateMachineGoapAI): Array<string> {
+        if (statuses.indexOf(hw4_Statuses.LOW_HEALTH) != -1 && statuses.indexOf(hw4_Statuses.CAN_BERSERK) != -1 && statuses.indexOf(hw4_Statuses.REACHED_GOAL)) {
+            // Set Berserk Mode
+            
+        }
         return null;
     }
 

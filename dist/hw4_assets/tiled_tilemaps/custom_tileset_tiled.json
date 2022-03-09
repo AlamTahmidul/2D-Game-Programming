@@ -1,0 +1,14 @@
+{ "columns":4,
+ "image":"custom_tilesets.jpg",
+ "imageheight":160,
+ "imagewidth":128,
+ "margin":0,
+ "name":"custom_tileset_tiled",
+ "spacing":0,
+ "tilecount":20,
+ "tiledversion":"1.8.2",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.8"
+}
