@@ -22,7 +22,7 @@ export default class Berserk extends GoapAction {
     }
 
     performAction(statuses: Array<string>, actor: StateMachineGoapAI, deltaT: number, target?: StateMachineGoapAI): Array<string> {
-        if (statuses.indexOf(hw4_Statuses.LOW_HEALTH) != -1 && statuses.indexOf(hw4_Statuses.CAN_BERSERK) != -1 && statuses.indexOf(hw4_Statuses.REACHED_GOAL)) {
+        if (this.checkPreconditions(statuses)) {
             // Set Berserk Mode
             
         }

@@ -33,6 +33,17 @@ export default class Retreat extends GoapAction {
      * as far away as possible.
      */
     performAction(statuses: Array<string>, actor: StateMachineGoapAI, deltaT: number, target?: StateMachineGoapAI): Array<string> {
+        if (this.checkPreconditions(statuses)) {
+            // Retreat
+            //Check distance from player
+            let enemy = <EnemyAI>actor;
+            let playerPos = enemy.lastPlayerPos;
+            let distance = enemy.owner.position.distanceTo(playerPos);
+            console.log("Low Health?");
+            if (distance <= this.retreatDistance) {
+                console.log(this.effects);
+            }
+        }
         return null;
     }
 

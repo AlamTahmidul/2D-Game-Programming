@@ -70,21 +70,25 @@ export default class hw4_scene extends Scene {
         this.load.spritesheet("slice", "hw4_assets/spritesheets/slice.json");
 
         // Load the tilemap
-        // HOMEWORK 4 - TODO
+        // Resolved
         // Change this file to be your own tilemap
-        this.load.tilemap("level", "hw4_assets/tilemaps/cse380_hw4_tilejson.json");
+        // this.load.tilemap("level", "hw4_assets/tilemaps/cse380_hw4_tilejson.json");
+        this.load.tilemap("level", "hw4_assets/tilemaps/hw4_tilemaps_custom.json");
 
         // Load the scene info
         this.load.object("weaponData", "hw4_assets/data/weaponData.json");
 
         // Load the nav mesh
-        this.load.object("navmesh", "hw4_assets/data/navmesh.json");
+        // this.load.object("navmesh", "hw4_assets/data/navmesh.json");
+        this.load.object("navmesh", "hw4_assets/data/navmesh_custom.json");
 
         // Load in the enemy info
-        this.load.object("enemyData", "hw4_assets/data/enemy.json");
+        // this.load.object("enemyData", "hw4_assets/data/enemy.json");
+        this.load.object("enemyData", "hw4_assets/data/enemy2.json");
 
         // Load in item info
-        this.load.object("itemData", "hw4_assets/data/items.json");
+        // this.load.object("itemData", "hw4_assets/data/items.json");
+        this.load.object("itemData", "hw4_assets/data/items2.json");
 
         // Load the healthpack sprite
         this.load.image("healthpack", "hw4_assets/sprites/healthpack.png");
@@ -96,7 +100,7 @@ export default class hw4_scene extends Scene {
     }
 
     startScene(){
-        // HOMEWORK 4 - TODO
+        // Resolved
         /*
             Modify this line if needed.
             
@@ -242,7 +246,7 @@ export default class hw4_scene extends Scene {
         return closetEnemy;
     }
 
-    // HOMEWORK 4 - TODO
+    // Resolved
     /**
      * This function spawns in all of the items in "items.json"
      * 
@@ -316,7 +320,7 @@ export default class hw4_scene extends Scene {
         }
     }
 
-    // HOMEWORK 4 - TODO
+    // Resolved
     /**
      * Change positions of the player characters to whatever fits your map
      */
@@ -329,7 +333,8 @@ export default class hw4_scene extends Scene {
         // Create the players
         this.playerCharacters = Array(2);
         this.playerCharacters[0] = this.add.animatedSprite("player1", "primary");
-        this.playerCharacters[0].position.set(4*8, 62*8);
+        // this.playerCharacters[0].position.set(4*8, 62*8);
+        this.playerCharacters[0].position.set(208/2, 1840/2);
         this.playerCharacters[0].addPhysics(new AABB(Vec2.ZERO, new Vec2(8, 8)));
         //First player is melee based, starts off with a knife and is short ranged
         this.playerCharacters[0].addAI(PlayerController,
@@ -350,7 +355,8 @@ export default class hw4_scene extends Scene {
 
         //Second player is ranged based, long range and starts with pistol
         this.playerCharacters[1] = this.add.animatedSprite("player2", "primary");
-        this.playerCharacters[1].position.set(2*8, 62*8);
+        // this.playerCharacters[1].position.set(2*8, 62*8);
+        this.playerCharacters[1].position.set(400/2, 1840/2);
         this.playerCharacters[1].addPhysics(new AABB(Vec2.ZERO, new Vec2(8, 8)));
         this.playerCharacters[1].addAI(PlayerController,
             {
@@ -478,11 +484,13 @@ export default class hw4_scene extends Scene {
          */
         let actionsGun = [new AttackAction(3, [hw4_Statuses.IN_RANGE], [hw4_Statuses.REACHED_GOAL]),
         new Move(2, [], [hw4_Statuses.IN_RANGE], {inRange: 100}),
-        new Retreat(1, [hw4_Statuses.LOW_HEALTH, hw4_Statuses.CAN_RETREAT], [hw4_Statuses.REACHED_GOAL], {retreatDistance: 200})];
+        new Retreat(1, [hw4_Statuses.LOW_HEALTH, hw4_Statuses.CAN_RETREAT], [hw4_Statuses.REACHED_GOAL], {retreatDistance: 200}),
+        new Berserk(1, [hw4_Statuses.LOW_HEALTH, hw4_Statuses.CAN_BERSERK], [hw4_Statuses.REACHED_GOAL], {retreatDistance: 100})];
 
         let actionKnife = [new AttackAction(3, [hw4_Statuses.IN_RANGE], [hw4_Statuses.REACHED_GOAL]),
         new Move(2, [], [hw4_Statuses.IN_RANGE], {inRange: 20}),
-        new Retreat(4, [hw4_Statuses.LOW_HEALTH, hw4_Statuses.CAN_RETREAT], [hw4_Statuses.REACHED_GOAL], {retreatDistance: 200})];
+        new Retreat(1, [hw4_Statuses.LOW_HEALTH, hw4_Statuses.CAN_RETREAT], [hw4_Statuses.REACHED_GOAL], {retreatDistance: 200}),
+        new Berserk(1, [hw4_Statuses.LOW_HEALTH, hw4_Statuses.CAN_BERSERK], [hw4_Statuses.REACHED_GOAL], {retreatDistance: 100})];
 
 
         // HOMEWORK 4 - TODO

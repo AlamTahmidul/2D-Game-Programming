@@ -49,11 +49,35 @@
  "tilesets":[
         {
          "firstgid":1,
-         "source":"custom_tileset_tiled.json"
-        }, 
+          "columns":4,
+              "image":"custom_tilesets.jpg",
+              "imageheight":160,
+              "imagewidth":128,
+              "margin":0,
+              "name":"custom_tileset_tiled",
+              "spacing":0,
+              "tilecount":20,
+              "tiledversion":"1.8.2",
+              "tileheight":32,
+              "tilewidth":32,
+              "type":"tileset",
+              "version":"1.8"
+       }, 
         {
          "firstgid":21,
-         "source":"custom_tileset2.json"
+         "columns":4,
+       "image":"custom_tilesets2.jpg",
+       "imageheight":128,
+       "imagewidth":128,
+       "margin":0,
+       "name":"custom_tileset2",
+       "spacing":0,
+       "tilecount":16,
+       "tiledversion":"1.8.2",
+       "tileheight":32,
+       "tilewidth":32,
+       "type":"tileset",
+       "version":"1.8"
         }],
  "tilewidth":32,
  "type":"map",

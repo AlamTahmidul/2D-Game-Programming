@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.8" tiledversion="1.8.2" orientation="orthogonal" renderorder="right-down" width="64" height="64" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="117">
  <editorsettings>
-  <export target="hw4_tilemaps_custom.json" format="json"/>
+  <export target="hw4_tilemaps_custom2.json" format="json"/>
  </editorsettings>
  <tileset firstgid="1" source="custom_tileset_tiled.json"/>
  <tileset firstgid="21" source="custom_tileset2.json"/>
@@ -74,250 +74,178 @@
 </data>
  </layer>
  <objectgroup id="3" name="NavmeshReference">
-  <object id="14" x="208" y="1840">
+  <object id="14" name="0: player1" x="208" y="1840">
    <point/>
   </object>
-  <object id="15" x="400" y="1840">
+  <object id="15" name="1: player2" x="400" y="1840">
    <point/>
   </object>
-  <object id="16" x="176" y="1616">
+  <object id="25" name="4: patrolGuard" x="176" y="960">
    <point/>
   </object>
-  <object id="25" x="176" y="960">
+  <object id="26" name="3: patrolGuard" x="368" y="960">
    <point/>
   </object>
-  <object id="26" x="368" y="960">
+  <object id="29" name="13: " x="1104" y="320">
    <point/>
   </object>
-  <object id="29" x="1104" y="320">
+  <object id="31" name="10: " x="1664" y="816">
    <point/>
   </object>
-  <object id="30" x="1232" y="320">
+  <object id="35" name="guard" x="1760" y="1056">
    <point/>
   </object>
-  <object id="31" x="1664" y="816">
+  <object id="38" name="guard" x="1472" y="1152">
    <point/>
   </object>
-  <object id="34" x="1760" y="1152">
+  <object id="39" name="12: patrolGuard" x="1408" y="1088">
    <point/>
   </object>
-  <object id="35" x="1760" y="1056">
+  <object id="40" name="15: " x="1408" y="928">
    <point/>
   </object>
-  <object id="36" x="1856" y="1056">
+  <object id="41" name="guard" x="1472" y="512">
    <point/>
   </object>
-  <object id="37" x="1856" y="1152">
+  <object id="44" name="16: patrolGuard" x="1120" y="800">
    <point/>
   </object>
-  <object id="38" x="1472" y="1152">
+  <object id="47" name="19: " x="640" y="768">
    <point/>
   </object>
-  <object id="39" x="1408" y="1088">
+  <object id="48" name="21: " x="640" y="832">
    <point/>
   </object>
-  <object id="40" x="1408" y="928">
+  <object id="49" name="26: " x="640" y="896">
    <point/>
   </object>
-  <object id="41" x="1472" y="512">
+  <object id="50" name="guard" x="832" y="1152">
    <point/>
   </object>
-  <object id="42" x="1408" y="576">
+  <object id="52" name="24: patrolGuard" x="896" y="1088">
    <point/>
   </object>
-  <object id="43" x="1280" y="800">
+  <object id="53" name="pistol" x="128" y="416">
    <point/>
   </object>
-  <object id="44" x="1120" y="800">
+  <object id="54" name="laserGun" x="128" y="128">
    <point/>
   </object>
-  <object id="45" x="960" y="800">
+  <object id="59" name="31: " x="416" y="136">
    <point/>
   </object>
-  <object id="46" x="832" y="800">
+  <object id="60" name="39: patrolGuard" x="576" y="128">
    <point/>
   </object>
-  <object id="47" x="640" y="768">
+  <object id="63" name="36: " x="448" y="480">
    <point/>
   </object>
-  <object id="48" x="640" y="832">
+  <object id="64" name="laserGun" x="1472" y="1792">
    <point/>
   </object>
-  <object id="49" x="640" y="896">
+  <object id="65" name="laserGun" x="1600" y="1824">
    <point/>
   </object>
-  <object id="50" x="832" y="1152">
+  <object id="66" name="laserGun" x="1728" y="1792">
    <point/>
   </object>
-  <object id="52" x="896" y="1088">
+  <object id="68" name="40: " x="1152" y="1504">
    <point/>
   </object>
-  <object id="53" x="128" y="416">
+  <object id="69" name="pistol" x="1536" y="1504">
    <point/>
   </object>
-  <object id="54" x="128" y="128">
+  <object id="71" name="43: patrolGuard" x="1936" y="704">
    <point/>
   </object>
-  <object id="55" x="192" y="192">
+  <object id="72" name="41: " x="1936" y="192">
    <point/>
   </object>
-  <object id="56" x="192" y="352">
+  <object id="73" name="44: pistol" x="1568" y="184">
    <point/>
   </object>
-  <object id="57" x="128" y="256">
+  <object id="74" name="46: patrolGuard" x="1344" y="184">
    <point/>
   </object>
-  <object id="58" x="256" y="256">
+  <object id="75" name="48: PatrolGuard" x="1024" y="176">
    <point/>
   </object>
-  <object id="59" x="416" y="136">
+  <object id="77" name="45: pistol" x="832" y="184">
    <point/>
   </object>
-  <object id="60" x="576" y="128">
+  <object id="79" name="51: " x="640" y="176">
    <point/>
   </object>
-  <object id="63" x="448" y="480">
+  <object id="80" name="47: " x="544" y="256">
    <point/>
   </object>
-  <object id="64" x="1472" y="1792">
+  <object id="81" name="guard" x="128" y="608">
    <point/>
   </object>
-  <object id="65" x="1600" y="1824">
+  <object id="82" name="guard" x="256" y="608">
    <point/>
   </object>
-  <object id="66" x="1728" y="1792">
+  <object id="87" name="pistol" x="576" y="1248">
    <point/>
   </object>
-  <object id="67" x="1920" y="1504">
+  <object id="88" name="pistol" x="864" y="1408">
    <point/>
   </object>
-  <object id="68" x="1152" y="1504">
+  <object id="89" name="guard" x="1728" y="640">
    <point/>
   </object>
-  <object id="69" x="1536" y="1504">
+  <object id="90" name="guard" x="1728" y="480">
    <point/>
   </object>
-  <object id="70" x="1968" y="928">
+  <object id="91" name="guard" x="1728" y="320">
    <point/>
   </object>
-  <object id="71" x="1936" y="704">
+  <object id="92" name="guard" x="736" y="288">
    <point/>
   </object>
-  <object id="72" x="1936" y="192">
+  <object id="93" name="guard" x="928" y="288">
    <point/>
   </object>
-  <object id="73" x="1568" y="184">
+  <object id="97" name="63: " x="1216" y="1312">
    <point/>
   </object>
-  <object id="74" x="1344" y="184">
+  <object id="99" name="64: patrolGuard" x="1216" y="1088">
    <point/>
   </object>
-  <object id="75" x="1024" y="176">
+  <object id="100" name="laserGun" x="1120" y="896">
    <point/>
   </object>
-  <object id="77" x="832" y="184">
+  <object id="101" name="67: " x="896" y="928">
    <point/>
   </object>
-  <object id="79" x="640" y="176">
+  <object id="102" name="70:" x="736" y="864">
    <point/>
   </object>
-  <object id="80" x="544" y="256">
+  <object id="103" name="knife" x="576" y="1408">
    <point/>
   </object>
-  <object id="81" x="128" y="608">
+  <object id="104" name="pistol" x="928" y="1504">
    <point/>
   </object>
-  <object id="82" x="256" y="608">
+  <object id="106" name="75: pistol" x="368" y="1344">
    <point/>
   </object>
-  <object id="83" x="544" y="608">
+  <object id="107" name="73: pistol" x="176" y="1344">
    <point/>
   </object>
-  <object id="84" x="576" y="544">
+  <object id="108" name="healthpack" x="800" y="1696">
    <point/>
   </object>
-  <object id="85" x="576" y="1056">
+  <object id="110" name="healthpack" x="992" y="1696">
    <point/>
   </object>
-  <object id="86" x="576" y="1152">
+  <object id="111" name="knife" x="1120" y="1824">
    <point/>
   </object>
-  <object id="87" x="576" y="1248">
+  <object id="112" name="knife" x="1248" y="1632">
    <point/>
   </object>
-  <object id="88" x="864" y="1408">
-   <point/>
-  </object>
-  <object id="89" x="1728" y="640">
-   <point/>
-  </object>
-  <object id="90" x="1728" y="480">
-   <point/>
-  </object>
-  <object id="91" x="1728" y="320">
-   <point/>
-  </object>
-  <object id="92" x="736" y="288">
-   <point/>
-  </object>
-  <object id="93" x="928" y="288">
-   <point/>
-  </object>
-  <object id="96" x="1088" y="1312">
-   <point/>
-  </object>
-  <object id="97" x="1216" y="1312">
-   <point/>
-  </object>
-  <object id="98" x="1056" y="1088">
-   <point/>
-  </object>
-  <object id="99" x="1216" y="1088">
-   <point/>
-  </object>
-  <object id="100" x="1120" y="896">
-   <point/>
-  </object>
-  <object id="101" x="896" y="928">
-   <point/>
-  </object>
-  <object id="102" x="736" y="864">
-   <point/>
-  </object>
-  <object id="103" x="576" y="1408">
-   <point/>
-  </object>
-  <object id="104" x="928" y="1504">
-   <point/>
-  </object>
-  <object id="105" x="368" y="1600">
-   <point/>
-  </object>
-  <object id="106" x="368" y="1344">
-   <point/>
-  </object>
-  <object id="107" x="176" y="1344">
-   <point/>
-  </object>
-  <object id="108" x="800" y="1696">
-   <point/>
-  </object>
-  <object id="110" x="992" y="1696">
-   <point/>
-  </object>
-  <object id="111" x="1120" y="1824">
-   <point/>
-  </object>
-  <object id="112" x="1248" y="1632">
-   <point/>
-  </object>
-  <object id="113" x="1440" y="1600">
-   <point/>
-  </object>
-  <object id="114" x="1760" y="1600">
-   <point/>
-  </object>
-  <object id="116" x="704" y="1824">
+  <object id="116" name="healthpack" x="704" y="1824">
    <point/>
   </object>
  </objectgroup>

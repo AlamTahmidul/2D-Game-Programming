@@ -1,0 +1,152 @@
+{
+  "numEnemies": 21,
+  "enemies": [
+    {
+      "position": [1024, 176],
+      "mode": "patrol",
+      "route": [0, 1],
+      "health": 5,
+      "type": "gun_enemy"
+    },
+    {
+      "position": [1344, 184],
+      "mode": "patrol",
+      "route": [2, 3],
+      "health": 8,
+      "type": "knife_enemy"
+    },
+    {
+      "position": [576, 128],
+      "mode": "patrol",
+      "route": [4, 5],
+      "health": 5,
+      "type": "gun_enemy"
+    },
+    {
+      "position": [896, 1088],
+      "mode": "patrol",
+      "route": [6, 7, 8],
+      "health": 5,
+      "type": "knife_enemy"
+    },
+    {
+      "position": [1408, 1088],
+      "mode": "patrol",
+      "route": [9, 10, 11],
+      "health": 5,
+      "type": "gun_enemy"
+    },
+    {
+      "position": [1120, 800],
+      "mode": "patrol",
+      "route": [12, 13],
+      "health": 8,
+      "type": "knife_enemy"
+    },
+    {
+      "position": [1216, 1088],
+      "mode": "patrol",
+      "route": [14, 15],
+      "health": 5,
+      "type": "gun_enemy"
+    },
+    {
+      "position": [1936, 704],
+      "mode": "patrol",
+      "route": [16, 17],
+      "health": 5,
+      "type": "knife_enemy"
+    },
+    {
+      "position": [176, 960],
+      "mode": "patrol",
+      "route": [18, 19],
+      "health": 5,
+      "type": "gun_enemy"
+    },
+    {
+      "position": [368, 960],
+      "mode": "patrol",
+      "route": [20, 21],
+      "health": 8,
+      "type": "knife_enemy"
+    },
+    {
+      "position": [128, 608],
+      "mode": "guard",
+      "guardPosition": [128, 608],
+      "health": 5,
+      "type": "gun_enemy"
+    },
+    {
+      "position": [256, 608],
+      "mode": "guard",
+      "guardPosition": [256, 608],
+      "health": 5,
+      "type": "knife_enemy"
+    },
+    {
+      "position": [736, 288],
+      "mode": "guard",
+      "guardPosition": [736, 288],
+      "health": 5,
+      "type": "gun_enemy"
+    },
+    {
+      "position": [928, 288],
+      "mode": "guard",
+      "guardPosition": [928, 288],
+      "health": 8,
+      "type": "knife_enemy"
+    },
+    {
+      "position": [1728, 320],
+      "mode": "guard",
+      "guardPosition": [1728, 320],
+      "health": 5,
+      "type": "gun_enemy"
+    },
+    {
+      "position": [1728, 480],
+      "mode": "guard",
+      "guardPosition": [1728, 480],
+      "health": 5,
+      "type": "knife_enemy"
+    },
+    {
+      "position": [1728, 640],
+      "mode": "guard",
+      "guardPosition": [1728, 640],
+      "health": 5,
+      "type": "gun_enemy"
+    },
+    {
+      "position": [1472, 512],
+      "mode": "guard",
+      "guardPosition": [1472, 512],
+      "health": 8,
+      "type": "knife_enemy"
+    },
+    {
+      "position": [832, 1152],
+      "mode": "guard",
+      "guardPosition": [832, 1152],
+      "health": 5,
+      "type": "gun_enemy"
+    },
+    {
+      "position": [1472, 1152],
+      "mode": "guard",
+      "guardPosition": [1472, 1152],
+      "health": 5,
+      "type": "knife_enemy"
+    },
+    {
+      "position": [1760, 1056],
+      "mode": "guard",
+      "guardPosition": [1760, 1056],
+      "health": 5,
+      "type": "gun_enemy"
+    }
+  ]
+}
