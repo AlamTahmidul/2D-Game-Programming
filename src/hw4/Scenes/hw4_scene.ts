@@ -375,7 +375,7 @@ export default class hw4_scene extends Scene {
     }
 
     /**
-     * // HOMEWORK 4 - TODO
+     * // Resolved
      * This function creates the navmesh for the game world.
      * 
      * It reads in information in the navmesh.json file.
@@ -483,14 +483,14 @@ export default class hw4_scene extends Scene {
          * 
          */
         let actionsGun = [new AttackAction(3, [hw4_Statuses.IN_RANGE], [hw4_Statuses.REACHED_GOAL]),
-        new Move(2, [], [hw4_Statuses.IN_RANGE], {inRange: 100}),
+        new Move(4, [], [hw4_Statuses.IN_RANGE], {inRange: 100}),
         new Retreat(1, [hw4_Statuses.LOW_HEALTH, hw4_Statuses.CAN_RETREAT], [hw4_Statuses.REACHED_GOAL], {retreatDistance: 200}),
-        new Berserk(1, [hw4_Statuses.LOW_HEALTH, hw4_Statuses.CAN_BERSERK], [hw4_Statuses.REACHED_GOAL], {retreatDistance: 100})];
+        new Berserk(2, [hw4_Statuses.LOW_HEALTH, hw4_Statuses.CAN_BERSERK], [hw4_Statuses.REACHED_GOAL], {retreatDistance: 100})];
 
         let actionKnife = [new AttackAction(3, [hw4_Statuses.IN_RANGE], [hw4_Statuses.REACHED_GOAL]),
-        new Move(2, [], [hw4_Statuses.IN_RANGE], {inRange: 20}),
+        new Move(4, [], [hw4_Statuses.IN_RANGE], {inRange: 20}),
         new Retreat(1, [hw4_Statuses.LOW_HEALTH, hw4_Statuses.CAN_RETREAT], [hw4_Statuses.REACHED_GOAL], {retreatDistance: 200}),
-        new Berserk(1, [hw4_Statuses.LOW_HEALTH, hw4_Statuses.CAN_BERSERK], [hw4_Statuses.REACHED_GOAL], {retreatDistance: 100})];
+        new Berserk(2, [hw4_Statuses.LOW_HEALTH, hw4_Statuses.CAN_BERSERK], [hw4_Statuses.REACHED_GOAL], {retreatDistance: 100})];
 
 
         // HOMEWORK 4 - TODO
