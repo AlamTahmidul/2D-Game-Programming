@@ -100,7 +100,7 @@ export default class PlayerController extends StateMachineAI {
         super.changeState(stateName);
     }
 
-    // HOMEWORK 5 - TODO
+    // Resolved
     /**
      * We want to detect when our player is moving over one of the switches in the world, and along with the sound
      * and label changes, we also visually want to change the tile.
@@ -117,17 +117,33 @@ export default class PlayerController extends StateMachineAI {
         if (this.owner.position)
         {
             let getTile: Vec2 = this.tilemap.getColRowAt(this.owner.position);
-            let tileIndex = this.tilemap.getTileAtRowCol(getTile.add(new Vec2(0, 1)));
+            let tileIndexBottom = this.tilemap.getTileAtRowCol(getTile.clone().add(new Vec2(0, 1)));
+            if (tileIndexBottom === 8) {
+                this.tilemap.setTileAtRowCol(getTile.clone().add(new Vec2(0, 1)), 9);
+                this.emitter.fireEvent(HW5_Events.PLAYER_HIT_SWITCH);
+            }
+            let tileIndexRight = this.tilemap.getTileAtRowCol(getTile.clone().add(new Vec2(1, 0)));
+            if (tileIndexRight === 8) {
+                this.tilemap.setTileAtRowCol(getTile.clone().add(new Vec2(1, 0)), 9);
+                this.emitter.fireEvent(HW5_Events.PLAYER_HIT_SWITCH);
+            }
+            let tileIndexLeft = this.tilemap.getTileAtRowCol(getTile.clone().add(new Vec2(-1, 0)));
+            if (tileIndexLeft === 8) {
+                this.tilemap.setTileAtRowCol(getTile.clone().add(new Vec2(-1, 0)), 9);
+                this.emitter.fireEvent(HW5_Events.PLAYER_HIT_SWITCH);
+            }
+            let tileIndexTop = this.tilemap.getTileAtRowCol(getTile.clone().add(new Vec2(0, -1)));
+            if (tileIndexTop === 8) {
+                this.tilemap.setTileAtRowCol(getTile.clone().add(new Vec2(0, -1)), 9);
+                this.emitter.fireEvent(HW5_Events.PLAYER_HIT_SWITCH);
+            }
+
             /* // Debug
             let getX = getTile.x;
             let getY = getTile.y;
             let tileIndex = this.tilemap.getTileAtRowCol(getTile.add(new Vec2(0, 1)));
             console.log(`${getX}, ${getY}: ${tileIndex}`);
             */
-           if (tileIndex === 8) {
-               this.tilemap.setTileAtRowCol(getTile, 9);
-               this.emitter.fireEvent(HW5_Events.PLAYER_HIT_SWITCH);
-           }
         }
 
 		if(this.currentState instanceof Jump){
