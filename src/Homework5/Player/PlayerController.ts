@@ -114,6 +114,22 @@ export default class PlayerController extends StateMachineAI {
     update(deltaT: number): void {
 		super.update(deltaT);
 
+        if (this.owner.position)
+        {
+            let getTile: Vec2 = this.tilemap.getColRowAt(this.owner.position);
+            let tileIndex = this.tilemap.getTileAtRowCol(getTile.add(new Vec2(0, 1)));
+            /* // Debug
+            let getX = getTile.x;
+            let getY = getTile.y;
+            let tileIndex = this.tilemap.getTileAtRowCol(getTile.add(new Vec2(0, 1)));
+            console.log(`${getX}, ${getY}: ${tileIndex}`);
+            */
+           if (tileIndex === 8) {
+               this.tilemap.setTileAtRowCol(getTile, 9);
+               this.emitter.fireEvent(HW5_Events.PLAYER_HIT_SWITCH);
+           }
+        }
+
 		if(this.currentState instanceof Jump){
 			Debug.log("playerstate", "Player State: Jump");
 		} else if (this.currentState instanceof Walk){
