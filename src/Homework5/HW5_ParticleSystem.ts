@@ -21,5 +21,17 @@ export default class HW5_ParticleSystem extends ParticleSystem {
 
     setParticleAnimation(particle: Particle) {
         super.setParticleAnimation(particle);
+        particle.tweens.add("collision", {
+            startDelay: 0,
+            duration: this.lifetime,
+            effects: [
+                {
+                    property: "alpha",
+                    start: this.lifetime,
+                    end: 0,
+                    ease: EaseFunctionType.OUT_SINE
+                }
+            ] /* TODO: Add effects here */
+        });
     }
 }

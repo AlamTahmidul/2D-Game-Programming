@@ -21,7 +21,7 @@ import HW5_ParticleSystem from "../HW5_ParticleSystem";
 import PlayerController from "../Player/PlayerController";
 import MainMenu from "./MainMenu";
 
-// HOMEWORK 5 - TODO
+// Resolved (in Level1)
 /**
  * Add in some level music.
  * 
@@ -78,6 +78,7 @@ export default class GameLevel extends Scene {
         // Initialize the timers
         this.respawnTimer = new Timer(1000, () => {
             if(GameLevel.livesCount === 0){
+                // console.log(GameLevel.livesCount);
                 this.sceneManager.changeToScene(MainMenu);
             } else {
                 this.respawnPlayer();
@@ -198,6 +199,7 @@ export default class GameLevel extends Scene {
                     break;
                 case HW5_Events.PLAYER_KILLED:
                     {
+                        console.log(GameLevel.livesCount);
                         this.respawnPlayer();
                     }
 
@@ -416,6 +418,7 @@ export default class GameLevel extends Scene {
      * 
      */
     protected handlePlayerBalloonCollision(player: AnimatedSprite, balloon: AnimatedSprite) {
+        console.log("Colliding!");
     }
 
     /**
@@ -423,9 +426,10 @@ export default class GameLevel extends Scene {
      * @param amt The amount to add to the player life
      */
     protected incPlayerLife(amt: number): void {
+        // console.log(GameLevel.livesCount);
         GameLevel.livesCount += amt;
         this.livesCountLabel.text = "Lives: " + GameLevel.livesCount;
-        if (GameLevel.livesCount == 0){
+        if (GameLevel.livesCount === 0){
             Input.disableInput();
             this.player.disablePhysics();
             this.emitter.fireEvent(GameEventType.PLAY_SOUND, {key: "player_death", loop: false, holdReference: false});
