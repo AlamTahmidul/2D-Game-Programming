@@ -65,6 +65,7 @@ export default class ParticleSystem implements Updateable {
             this.particlePool[i] = <Particle>scene.add.graphic(GraphicType.PARTICLE, layer,
                 { position: this.sourcePoint.clone(), size: this.particleSize.clone(), mass: this.particleMass });
             this.particlePool[i].addPhysics();
+            this.particlePool[i].setGroup("balloon");
             this.particlePool[i].isCollidable = false;
             this.particlePool[i].visible = false;
         }

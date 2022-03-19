@@ -368,7 +368,7 @@ export default class GameLevel extends Scene {
         this.levelEndArea.color = new Color(0, 0, 0, 0);
     }
 
-    // HOMEWORK 5 - TODO
+    // Resolved
     /*
         Make sure balloons are being set up properly to have triggers so that when they collide
         with players, they send out a trigger event.
@@ -388,6 +388,7 @@ export default class GameLevel extends Scene {
         balloon.addPhysics();
         balloon.addAI(BalloonController, aiOptions);
         balloon.setGroup("balloon");
+        balloon.setTrigger("player", HW5_Events.PLAYER_HIT_BALLOON, null);
 
     }
 
@@ -430,6 +431,7 @@ export default class GameLevel extends Scene {
         GameLevel.livesCount += amt;
         this.livesCountLabel.text = "Lives: " + GameLevel.livesCount;
         if (GameLevel.livesCount === 0){
+            console.log("Player Getting killed?!");
             Input.disableInput();
             this.player.disablePhysics();
             this.emitter.fireEvent(GameEventType.PLAY_SOUND, {key: "player_death", loop: false, holdReference: false});
