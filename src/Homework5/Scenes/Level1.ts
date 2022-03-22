@@ -7,7 +7,7 @@ import Level2 from "./Level2";
 
 export default class Level1 extends GameLevel {
     
-    // HOMEWORK 5 - TODO
+    // Resolved
     /**
      * Add your balloon pop sound here and use it throughout the code
      */
@@ -19,13 +19,15 @@ export default class Level1 extends GameLevel {
         this.load.spritesheet("blue", "hw5_assets/spritesheets/blueBalloon.json");
         this.load.audio("jump", "hw5_assets/sounds/jump.wav");
         this.load.audio("switch", "hw5_assets/sounds/switch.wav");
+        this.load.audio("pop", "hw5_assets/sounds/pop.wav");
         this.load.audio("player_death", "hw5_assets/sounds/player_death.wav");
         // Resolved
         // You'll want to change this to your level music
-        this.load.audio("level_music", "hw5_assets/music/game_music_custom.mp3");
+        // Music Melody used from Cymatics - Empire Melody Loop 6
+        this.load.audio("level1_music", "hw5_assets/music/game_music_custom.mp3");
     }
 
-    // HOMEWORK 5 - TODO
+    // Resolved
     /**
      * Decide which resource to keep and which to cull.
      * 
@@ -39,6 +41,13 @@ export default class Level1 extends GameLevel {
      */
     unloadScene(){
         // Keep resources - this is up to you
+        this.load.keepSpritesheet("player");
+        this.load.keepSpritesheet("red");
+        this.load.keepSpritesheet("blue");
+        this.load.keepAudio("jump");
+        this.load.keepAudio("switch");
+        this.load.keepAudio("pop");
+        this.load.keepAudio("player_death");
     }
 
     startScene(): void {
@@ -67,7 +76,7 @@ export default class Level1 extends GameLevel {
         for(let pos of [new Vec2(20, 3), new Vec2(41,4), new Vec2(3, 4)]){
             this.addBalloon("blue", pos, {color: HW5_Color.BLUE});
         }
-        this.emitter.fireEvent(GameEventType.PLAY_SOUND, {key: "level_music", loop: true, holdReference: true});
+        this.emitter.fireEvent(GameEventType.PLAY_SOUND, {key: "level1_music", loop: true, holdReference: true});
     }
 
     updateScene(deltaT: number): void {

@@ -155,6 +155,7 @@ export default class GameLevel extends Scene {
                         }
                         this.system.startSystem(2000, particleMass, node.position.clone());
                         node.destroy();
+                        this.emitter.fireEvent(GameEventType.PLAY_SOUND, {key: "pop", loop: false, holdReference: false});
                     }
                     break;
                     
@@ -393,7 +394,7 @@ export default class GameLevel extends Scene {
 
     }
 
-    // HOMEWORK 5 - TODO
+    // Resolved
     /**
      * You must implement this method.
      * There are 3 types of collisions:
@@ -461,7 +462,10 @@ export default class GameLevel extends Scene {
      */
     protected respawnPlayer(): void {
         GameLevel.livesCount = 3;
-        this.emitter.fireEvent(GameEventType.STOP_SOUND, {key: "level_music"});
+        if (this.load.getAudio("level1_music"))
+            this.emitter.fireEvent(GameEventType.STOP_SOUND, {key: "level1_music"});
+        else if (this.load.getAudio("level2_music"))
+            this.emitter.fireEvent(GameEventType.STOP_SOUND, {key: "level2_music"});
         this.sceneManager.changeToScene(MainMenu, {});
         Input.enableInput();
         this.system.stopSystem();
