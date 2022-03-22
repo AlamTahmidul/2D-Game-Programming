@@ -37,7 +37,7 @@ export default class PlayerController extends StateMachineAI {
     tilemap: OrthogonalTilemap;
     suitColor: HW5_Color;
 
-    // HOMEWORK 5 - TODO
+    // Resolved
     /**
      * Implement a death animation for the player using tweens. The animation rotate the player around itself multiple times
      * over the tween duration, as well as fading out the alpha value of the player. The tween should also make use of the

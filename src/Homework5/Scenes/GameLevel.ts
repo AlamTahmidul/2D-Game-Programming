@@ -389,6 +389,7 @@ export default class GameLevel extends Scene {
         balloon.addAI(BalloonController, aiOptions);
         balloon.setGroup("balloon");
         balloon.setTrigger("player", HW5_Events.PLAYER_HIT_BALLOON, null);
+        // balloon.setTrigger("balloon", HW5_Events.BALLOON_POPPED, null);
 
     }
 
@@ -420,6 +421,23 @@ export default class GameLevel extends Scene {
      */
     protected handlePlayerBalloonCollision(player: AnimatedSprite, balloon: AnimatedSprite) {
         console.log("Colliding!");
+        if (player && balloon)
+        {
+            let b = <BalloonController> balloon._ai;
+            let p = <PlayerController> player._ai;
+            if (b.color === HW5_Color.RED && p.suitColor !== HW5_Color.RED ) {
+                console.log("... with Red Balloon but player is not red");
+                this.incPlayerLife(-1);
+            } else if (b.color === HW5_Color.BLUE && p.suitColor !== HW5_Color.BLUE) {
+                console.log("... with Blue Balloon but player is not blue");
+                this.incPlayerLife(-1);
+            } else if (b.color === HW5_Color.GREEN && p.suitColor !== HW5_Color.GREEN) {
+                console.log("... with Green Balloon but player is not green");
+                this.incPlayerLife(-1);
+            }
+            // this.system;
+            this.emitter.fireEvent(HW5_Events.BALLOON_POPPED, {owner: balloon.id});
+        }
     }
 
     /**
@@ -431,7 +449,6 @@ export default class GameLevel extends Scene {
         GameLevel.livesCount += amt;
         this.livesCountLabel.text = "Lives: " + GameLevel.livesCount;
         if (GameLevel.livesCount === 0){
-            console.log("Player Getting killed?!");
             Input.disableInput();
             this.player.disablePhysics();
             this.emitter.fireEvent(GameEventType.PLAY_SOUND, {key: "player_death", loop: false, holdReference: false});
