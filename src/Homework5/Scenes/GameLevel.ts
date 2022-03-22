@@ -100,7 +100,7 @@ export default class GameLevel extends Scene {
 
         // Initially disable player movement
         Input.disableInput();
-        this.emitter.fireEvent(HW5_Events.SUIT_COLOR_CHANGE, {color: HW5_Color.RED});
+        this.emitter.fireEvent(HW5_Events.SUIT_COLOR_CHANGE, {color: HW5_Color.RED, playerPos: this.player.position.x});
     }
 
 
@@ -176,6 +176,7 @@ export default class GameLevel extends Scene {
                     {
                         // Re-enable controls
                         Input.enableInput();
+                        this.emitter.fireEvent(HW5_Events.SUIT_COLOR_CHANGE, {color: HW5_Color.RED, playerPos: this.player.position.x});
                     }
                     break;
                 
@@ -195,6 +196,8 @@ export default class GameLevel extends Scene {
                                 }
                             }
                             this.sceneManager.changeToScene(this.nextLevel, {}, sceneOptions);
+                        } else {
+                            this.respawnPlayer();
                         }
                     }
                     break;
@@ -214,15 +217,15 @@ export default class GameLevel extends Scene {
          */
         if (this.suitChangeTimer.isStopped()) {
             if (Input.isKeyJustPressed("1")) {
-                this.emitter.fireEvent(HW5_Events.SUIT_COLOR_CHANGE, {color: HW5_Color.RED});
+                this.emitter.fireEvent(HW5_Events.SUIT_COLOR_CHANGE, {color: HW5_Color.RED, playerPos: this.player.position});
                 this.suitChangeTimer.start();
             }
             if (Input.isKeyJustPressed("2")) {
-                this.emitter.fireEvent(HW5_Events.SUIT_COLOR_CHANGE, {color: HW5_Color.BLUE});
+                this.emitter.fireEvent(HW5_Events.SUIT_COLOR_CHANGE, {color: HW5_Color.BLUE, playerPos: this.player.position});
                 this.suitChangeTimer.start();
             }
             if (Input.isKeyJustPressed("3")) {
-                this.emitter.fireEvent(HW5_Events.SUIT_COLOR_CHANGE, {color: HW5_Color.GREEN});
+                this.emitter.fireEvent(HW5_Events.SUIT_COLOR_CHANGE, {color: HW5_Color.GREEN, playerPos: this.player.position});
                 this.suitChangeTimer.start();
             }
         }
@@ -390,8 +393,6 @@ export default class GameLevel extends Scene {
         balloon.addAI(BalloonController, aiOptions);
         balloon.setGroup("balloon");
         balloon.setTrigger("player", HW5_Events.PLAYER_HIT_BALLOON, null);
-        // balloon.setTrigger("balloon", HW5_Events.BALLOON_POPPED, null);
-
     }
 
     // Resolved

@@ -23,6 +23,7 @@ export default class HW5_ParticleSystem extends ParticleSystem {
 
     setParticleAnimation(particle: Particle) {
         super.setParticleAnimation(particle);
+        // particle.vel = RandUtils.randVec(-50, 50, this.particleMass * 8 * this.lifetime/100, this.particleMass * 12 * this.lifetime/100);
         if (particle.mass == 1) {
             particle.color = Color.RED;
         } else if (particle.mass == 2) {
@@ -30,7 +31,7 @@ export default class HW5_ParticleSystem extends ParticleSystem {
         } else if (particle.mass == 3) {
             particle.color = Color.BLUE;
         }
-        particle.vel = RandUtils.randVec(-50, 50, this.particleMass * 6, this.particleMass * 9.81 * this.lifetime/100);
+        particle.vel = RandUtils.randVec(-50, 50, Math.abs(particle.vel.y) * particle.mass, Math.abs(particle.vel.y) * particle.mass * 4);
         particle.tweens.add("active", {
             startDelay: 0,
             duration: this.lifetime,

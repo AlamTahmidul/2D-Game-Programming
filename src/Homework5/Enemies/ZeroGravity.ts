@@ -4,7 +4,7 @@ import AnimatedSprite from "../../Wolfie2D/Nodes/Sprites/AnimatedSprite";
 import { HW5_Events } from "../hw5_enums";
 import BalloonState from "./BalloonState";
 
-// HOMEWORK 5 - TODO
+// Resolved
 /**
  * For this homework, you'll have to implement an additional state to the AI from scratch.
  * 
@@ -21,10 +21,45 @@ import BalloonState from "./BalloonState";
  * are fired to get the player position
  */
 export default class ZeroGravity extends BalloonState {
+	protected playerPos: Vec2;
+
 	onEnter(): void {
+		this.gravity = 0;
+		// this.parent.velocity.y = 0;
+		(<AnimatedSprite>this.owner).animation.play("IDLE", true);
+	}
+
+	handleInput(event: GameEvent): void {
+		super.handleInput(event);
+		if (event.type === HW5_Events.SUIT_COLOR_CHANGE) {
+			this.playerPos = event.data.get("playerPos");
+		}
+	}
+
+	update(deltaT: number): void {
+		super.update(deltaT);
+		if (this.playerPos)
+		{
+			let dX2 = Math.pow(this.playerPos.x - this.owner.position.x, 2);
+			let dY2 = Math.pow(this.playerPos.y - this.owner.position.y, 2);
+			let dist = Math.sqrt(dX2 + dY2);
+			if (dist <= 10*32)
+				{this.parent.velocity.x = 2 * this.parent.direction.x * this.parent.speed;
+					// console.log("Double!");
+				}
+			else
+				this.parent.velocity.x = this.parent.direction.x * this.parent.speed;
+		}
+		else
+		{	this.parent.velocity.x = this.parent.direction.x * this.parent.speed;
+			// console.log(this.parent.velocity.x);
+		}
+
+		this.owner.move(this.parent.velocity.scaled(deltaT));
 	}
 
 	onExit(): Record<string, any> {
+		(<AnimatedSprite>this.owner).animation.stop();
 		return {};
 	}
 }
